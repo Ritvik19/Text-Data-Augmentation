@@ -10,40 +10,15 @@ class CharacterNoise:
         self.n_aug = n_aug
         self.seed = seed
         self.disable_progress = not show_progress
-        self.replacement_chars = {
-            "a": list("qwsz"),
-            "b": list("vghn"),
-            "c": list("xdfv"),
-            "d": list("serfcx"),
-            "e": list("wsdr"),
-            "f": list("drtgvc"),
-            "g": list("ftyhbv"),
-            "h": list("gyujnb"),
-            "i": list("ujko"),
-            "j": list("huikmn"),
-            "k": list("jiolm"),
-            "l": list("pok"),
-            "m": list("njk"),
-            "n": list("bhjm"),
-            "o": list("iklp"),
-            "p": list("ol"),
-            "q": list("wsa"),
-            "r": list("edft"),
-            "s": list("wedxza"),
-            "t": list("rfgy"),
-            "u": list("yhji"),
-            "v": list("cfgb"),
-            "w": list("qase"),
-            "x": list("zsdc"),
-            "y": list("tghu"),
-            "z": list("asx"),
-        }
+        self.replacement_chars = list(
+            "qwertyuiopasdfghjklzxcvbnm QWERTYUIOPASDFGHJKLZXCVBNM 1234567890"
+        )
 
     def __insert(self, words):
         r_idx_w = random.randint(0, len(words) - 1)
         word = list(words[r_idx_w])
         r_idx_i = random.randint(0, len(word) - 1)
-        word.insert(r_idx_i, random.choice(self.replacement_chars[word[r_idx_i]]))
+        word.insert(r_idx_i, random.choice(self.replacement_chars))
         word = "".join(word)
         words[r_idx_w] = word
         return words
@@ -76,7 +51,7 @@ class CharacterNoise:
         new_chars = [
             char
             if random.random() > self.alpha
-            else self.replacement_chars.get(char, char)
+            else random.choice(self.replacement_chars)
             for char in chars
         ]
         return "".join(new_chars)

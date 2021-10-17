@@ -6,7 +6,7 @@ from transformers import pipeline
 
 class ContextualWordReplacement:
     def __init__(
-        self, model, n_aug=10, seed=None, show_progress=True, return_best=True
+        self, model=None, n_aug=10, seed=None, show_progress=True, return_best=False
     ):
         self.model = pipeline("fill-mask", model=model)
         self.n_aug = n_aug
@@ -16,7 +16,7 @@ class ContextualWordReplacement:
 
     def __contextual_word_replacement(self, sentence):
         words = sentence.split()
-        r_idx = random.choice(0, len(words) - 1)
+        r_idx = random.randint(0, len(words) - 1)
         words[r_idx] = "<mask>"
         masked_sentence = " ".join(words)
         return self.model(masked_sentence)

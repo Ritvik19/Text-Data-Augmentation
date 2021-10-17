@@ -42,4 +42,3 @@ class SynonymReplacement:
             for _ in range(self.n_aug):
                 augmented.append(self.__replace_sent(sentence))
         return augmented
-

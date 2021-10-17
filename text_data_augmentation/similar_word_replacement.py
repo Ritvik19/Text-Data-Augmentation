@@ -14,7 +14,9 @@ class SimilarWordReplacement:
         self.nlp = spacy.load(model)
 
     def __get_similar_word(self, word):
-        ms = self.nlp.vocab.vectors.most_similar(np.asarray([self.nlp.vocab.vectors[self.nlp.vocab.strings[word]]]), n=15)
+        ms = self.nlp.vocab.vectors.most_similar(
+            np.asarray([self.nlp.vocab.vectors[self.nlp.vocab.strings[word]]]), n=15
+        )
         words = [self.nlp.vocab.strings[w] for w in ms[0][0]]
         words = [w for w in words if w.lower() != word.lower()]
         return random.choice(words)

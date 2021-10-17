@@ -5,7 +5,9 @@ from tqdm.auto import tqdm
 
 
 class EasyDataAugmentation:
-    def __init__(self, alpha=0.1, n_aug=4, operations=None, seed=None, show_progress=True):
+    def __init__(
+        self, alpha=0.1, n_aug=4, operations=None, seed=None, show_progress=True
+    ):
         self.alpha = alpha
         self.operations = operations or ["insertion", "deletion", "swap", "shuffle"]
         self.n_aug = n_aug
@@ -79,4 +81,3 @@ class EasyDataAugmentation:
                         + "insertion, deletion, swap, shuffle."
                     )
         return augmented
-

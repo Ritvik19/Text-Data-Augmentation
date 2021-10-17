@@ -57,7 +57,7 @@ class KeyBoardAugmentation:
         new_chars = [
             char
             if random.random() > self.alpha
-            else random.choice(self.replacement_chars.get(char, char))
+            else random.choice(self.replacement_chars.get(char, [char]))
             for char in chars
         ]
         return "".join(new_chars)

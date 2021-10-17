@@ -1,5 +1,6 @@
-import nltk
 import random
+
+import nltk
 from tqdm.auto import tqdm
 
 

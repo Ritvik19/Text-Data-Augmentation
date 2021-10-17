@@ -1,7 +1,8 @@
-__version__ = "0.9.0"
+__version__ = "0.10.0"
 
 from .back_translation import *
 from .character_noise import *
+from .contextual_word_replacement import *
 from .easy_data_augmentation import *
 from .keyboard_augmentation import *
 from .ocr_augmentation import *

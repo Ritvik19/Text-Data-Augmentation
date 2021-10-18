@@ -1,6 +1,7 @@
 import random
 
 import torch
+from nltk import sent_tokenize
 from tqdm.auto import tqdm
 from transformers import T5ForConditionalGeneration, T5Tokenizer
 
@@ -13,8 +14,8 @@ class Paraphrase:
         self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         self.disable_progress = not show_progress
 
-    def __paraphrase(self, sentence):
-        text = "paraphrase: " + sentence
+    def __paraphrase_sent(self, sent):
+        text = "paraphrase: " + sent
         encoding = self.tokenizer.encode_plus(
             text, pad_to_max_length=True, return_tensors="pt"
         )
@@ -36,6 +37,12 @@ class Paraphrase:
             )
             for output in outputs
         ]
+
+    def __paraphrase(self, sentence):
+        sent_tokens = sent_tokenize(sentence)
+        paraphrases = [self.__paraphrase_sent(sent) for sent in sent_tokens]
+        paraphrases = [" ".join(list(x)) for x in zip(*paraphrases)]
+        return paraphrases
 
     def __call__(self, x):
         augmented = []

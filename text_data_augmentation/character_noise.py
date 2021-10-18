@@ -4,7 +4,7 @@ from tqdm.auto import tqdm
 
 
 class CharacterNoise:
-    def __init__(self, alpha=0.05, n_aug=4, seed=None, show_progress=True):
+    def __init__(self, alpha=0.01, n_aug=4, seed=None, show_progress=True):
         self.alpha = alpha
         self.operations = ["insertion", "deletion", "swap", "replace"]
         self.n_aug = n_aug

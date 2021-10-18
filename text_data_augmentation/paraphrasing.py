@@ -1,15 +1,16 @@
 import random
 
+import torch
 from tqdm.auto import tqdm
 from transformers import T5ForConditionalGeneration, T5Tokenizer
 
 
 class Paraphrase:
-    def __init__(self, t5model, device, n_aug=10, show_progress=True):
+    def __init__(self, t5model, n_aug=10, show_progress=True):
         self.tokenizer = T5Tokenizer.from_pretrained(t5model)
         self.model = T5ForConditionalGeneration.from_pretrained(t5model)
         self.n_aug = n_aug
-        self.device = device
+        self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
         self.disable_progress = not show_progress
 
     def __paraphrase(self, sentence):

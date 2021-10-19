@@ -7,6 +7,16 @@ from transformers import T5ForConditionalGeneration, T5Tokenizer
 
 
 class Paraphrase:
+    """Paraphrase Augmentation rephrases the input sentences using T5 models.
+
+    Args:
+        t5model (string): T5 model
+        n_aug (int, optional): Number of augmentations to be created for one sentence.
+            Defaults to 10.
+        show_progress (bool, optional): Set True to display progress bar.
+            Defaults to True.
+    """
+
     def __init__(self, t5model, n_aug=10, show_progress=True):
         self.tokenizer = T5Tokenizer.from_pretrained(t5model)
         self.model = T5ForConditionalGeneration.from_pretrained(t5model)

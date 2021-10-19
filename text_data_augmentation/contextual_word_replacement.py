@@ -6,6 +6,19 @@ from transformers import pipeline
 
 
 class ContextualWordReplacement:
+    """Contextual Word Replacement augmentation creates Augmented Samples by
+    randomly replacing some words with a mask and then using a Masked Language
+    Model to fill it.
+
+    Args:
+        model (string): Transformer Model to generate vectors. Defaults to distil-roberta.
+        n_aug (int, optional): Number of augmentations to be created for one sentence.
+            Defaults to 10.
+        seed (int, optional): Random State for reproducibility. Defaults to None.
+        show_progress (bool, optional): Set True to display progress bar.
+            Defaults to True.
+    """
+
     def __init__(self, model=None, n_aug=10, seed=None, show_progress=True):
         self.model = pipeline("fill-mask", model=model)
         self.n_aug = n_aug

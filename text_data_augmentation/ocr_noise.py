@@ -4,6 +4,19 @@ from tqdm.auto import tqdm
 
 
 class OCRNoise:
+    """OCR Noise Augmentation adds character level spelling mistake noise by
+    mimicing ocr errors in the input text.
+
+    Args:
+        alpha (float, optional): Control parameter, frequency of operation increases
+            with increase in the vvalue of alpha. Defaults to 0.01.
+        n_aug (int, optional): Number of augmentations to be created for one sentence.
+            Defaults to 4.
+        seed (int, optional): Random State for reproducibility. Defaults to None.
+        show_progress (bool, optional): Set True to display progress bar.
+            Defaults to True.
+    """
+
     def __init__(self, alpha=0.01, n_aug=4, seed=None, show_progress=True):
         self.alpha = alpha
         self.n_aug = n_aug

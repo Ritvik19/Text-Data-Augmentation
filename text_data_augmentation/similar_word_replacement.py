@@ -6,6 +6,20 @@ from tqdm.auto import tqdm
 
 
 class SimilarWordReplacement:
+    """Similar Word Replacement Augmentation creates Augmented Samples by randomly
+    replacing some words with a word having the most similar vector to it.
+
+    Args:
+        model (string): Spacy Model to generate vectors.
+        alpha (float, optional): Control parameter, frequency of operation increases
+            with increase in the vvalue of alpha. Defaults to 0.01.
+        n_aug (int, optional): Number of augmentations to be created for one sentence.
+            Defaults to 4.
+        seed (int, optional): Random State for reproducibility. Defaults to None.
+        show_progress (bool, optional): Set True to display progress bar.
+            Defaults to True.
+    """
+
     def __init__(self, model, alpha=0.1, n_aug=4, seed=None, show_progress=True):
         self.alpha = alpha
         self.n_aug = n_aug

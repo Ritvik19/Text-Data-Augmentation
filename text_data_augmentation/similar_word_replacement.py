@@ -23,7 +23,6 @@ class SimilarWordReplacement:
             return random.choice(words)
         except (KeyError, IndexError):
             return word
-        
 
     def __replace_word(self, words):
         r_idx = random.randint(0, len(words) - 1)

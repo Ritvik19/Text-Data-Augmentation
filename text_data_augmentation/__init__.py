@@ -1,4 +1,4 @@
-__version__ = "0.12.0"
+__version__ = "0.13.0"
 
 from .back_translation import *
 from .character_noise import *

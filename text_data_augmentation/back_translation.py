@@ -1,25 +1,41 @@
-from googletrans import Translator
 from tqdm.auto import tqdm
+from transformers import AutoModelForSeq2SeqLM, MarianTokenizer
+from transformers.pipelines import base
 
 
 class BackTranslation:
-    def __init__(self, base_language, interim_language, show_progress=True):
-        self.base_language = base_language
-        self.interim_language = interim_language
+    def __init__(self, base_language="en", interim_language="fr", show_progress=True):
         self.disable_progress = not show_progress
-        self.translator = Translator()
+        self.tokenizer_a = MarianTokenizer.from_pretrained(
+            f"Helsinki-NLP/opus-mt-{base_language}-{interim_language}"
+        )
+        self.model_a = AutoModelForSeq2SeqLM.from_pretrained(
+            f"Helsinki-NLP/opus-mt-{base_language}-{interim_language}"
+        )
+        self.tokenizer_b = MarianTokenizer.from_pretrained(
+            f"Helsinki-NLP/opus-mt-{interim_language}-{base_language}"
+        )
+        self.model_b = AutoModelForSeq2SeqLM.from_pretrained(
+            f"Helsinki-NLP/opus-mt-{interim_language}-{base_language}"
+        )
 
     def __call__(self, x):
         augmented = []
         for doc in tqdm(x, disable=self.disable_progress):
             augmented.append(doc)
             try:
-                aug = self.translator.translate(
-                    text=doc, dest=self.interim_language
-                ).text
-                aug = self.translator.translate(text=aug, dest=self.base_language).text
-                augmented.append(aug)
-            except AttributeError:
-                pass
+                input_ids_a = self.tokenizer_a.encode(doc, return_tensors="pt")
+                outputs_a = self.model_a.generate(input_ids_a)
+                decoded_a = self.tokenizer_a.decode(
+                    outputs_a[0], skip_special_tokens=True
+                )
+                input_ids_b = self.tokenizer_b.encode(decoded_a, return_tensors="pt")
+                outputs_b = self.model_b.generate(input_ids_b)
+                decoded_b = self.tokenizer_b.decode(
+                    outputs_b[0], skip_special_tokens=True
+                )
+                augmented.append(decoded_b)
+            except IndexError:
+                augmented.append(doc)
 
         return augmented

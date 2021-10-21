@@ -8,6 +8,7 @@ State of the Text Data Augmentation for Natural Language Processing Applications
   - [Table of Contents](#table-of-contents)
   - [Installation](#installation)
   - [Usage](#usage)
+    - [Abstractive Summarization](#abstractive-summarization)
     - [Back Translation](#back-translation)
     - [Character Noise](#character-noise)
     - [Contextual Word Replacement](#contextual-word-replacement)
@@ -33,6 +34,17 @@ pip install git+https://github.com/Ritvik19/Text-Data-Augmentation.git
 ## Usage
 
 This library various techniques for augmenting text data:
+
+### Abstractive Summarization
+
+Abstractive Summarization Augmentation summarizes the model using transformer models. [[17]](#ref-17) [[18]](#ref-18)
+
+```python
+>>> from text_data_augmentation import AbstractiveSummarization
+>>> aug = AbstractiveSummarization()
+>>> aug(['Abstractive Summarization is a task in Natural Language Processing (NLP) that aims to generate a concise summary of a source text. Unlike extractive summarization, abstractive summarization does not simply copy important phrases from the source text but also potentially come up with new phrases that are relevant, which can be seen as paraphrasing. Abstractive summarization yields a number of applications in different domains, from books and literature, to science and R&D, to financial research and legal documents analysis.'])
+['Abstractive Summarization is a task in Natural Language Processing (NLP) that aims to generate a concise summary of a source text. Unlike extractive summarization, abstractive summarization does not simply copy important phrases from the source text but also potentially come up with new phrases that are relevant, which can be seen as paraphrasing. Abstractive summarization yields a number of applications in different domains, from books and literature, to science and R&D, to financial research and legal documents analysis.', 'Abstractive Summarization is a task in Natural Language Processing (NLP) that aims to generate a concise summary of a source text . Unlike extractive summarization, it does not copy important phrases from the source text but also potentially come up with new phrases thatare relevant, which can be seen as paraphrasing .']
+```
 
 ### Back Translation
 
@@ -163,5 +175,7 @@ Word Split Augmentation adds word level spelling mistake noise by spliting words
 13. <a href="https://arxiv.org/pdf/1809.02079.pdf" id="ref-13">Adversarial Over-Sensitivity and Over-Stability Strategies for Dialogue Models</a>
 14. <a href="https://arxiv.org/pdf/1812.05271v1.pdf" id="ref-14">TextBugger: Generating Adversarial Text Against Real-world Applications</a>
 15. <a href="https://arxiv.org/pdf/1804.07998.pdf" id="ref-15">Generating Natural Language Adversarial Examples</a>
-16. <a href="https://arxiv.org/pdf/1509.01626.pdf" id="ref-16">Character-level Convolutional Networks for Text
-    Classification</a>
+16. <a href="https://arxiv.org/pdf/1509.01626.pdf" id="ref-16">Character-level Convolutional Networks for Text Classification</a>
+17. <a href="https://arxiv.org/pdf/1812.02303.pdf" id="ref-17">Neural Abstractive Text Summarization with Sequence-to-Sequence Models</a>
+18. <a href="https://arxiv.org/pdf/1910.13461v1.pdf" id="ref-18">BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension</a>
+19.

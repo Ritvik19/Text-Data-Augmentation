@@ -1,5 +1,6 @@
-__version__ = "1.0.1"
+__version__ = "1.1.1"
 
+from .abstractive_summarization import *
 from .back_translation import *
 from .character_noise import *
 from .contextual_word_replacement import *

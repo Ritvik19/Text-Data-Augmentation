@@ -79,7 +79,6 @@ class KeyBoardNoise:
         random.seed(self.seed)
         augmented = []
         for sentence in tqdm(x, disable=self.disable_progress):
-            augmented.append(sentence)
             for _ in range(self.n_aug):
                 augmented.append(self.__replace(sentence))
-        return augmented
+        return list(x) + augmented

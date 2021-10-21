@@ -57,6 +57,5 @@ class Paraphrase:
     def __call__(self, x):
         augmented = []
         for sentence in tqdm(x, disable=self.disable_progress):
-            augmented.append(sentence)
             augmented.extend(self.__paraphrase(sentence))
-        return augmented
+        return list(x) + augmented

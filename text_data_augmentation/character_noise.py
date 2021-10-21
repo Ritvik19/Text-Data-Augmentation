@@ -73,7 +73,6 @@ class CharacterNoise:
         random.seed(self.seed)
         augmented = []
         for sentence in tqdm(x, disable=self.disable_progress):
-            augmented.append(sentence)
             for _ in range(self.n_aug):
                 operation = random.choice(self.operations)
                 if operation == "insertion":
@@ -89,4 +88,4 @@ class CharacterNoise:
                         f"Invalid operation {operation}, valid operations are:"
                         + "insertion, deletion, swap, replace."
                     )
-        return augmented
+        return list(x) + augmented

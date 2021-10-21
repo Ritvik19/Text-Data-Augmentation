@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "text-data-augmentation"
-version = "1.0.0"
+version = "1.0.1"
 description = "State of the Text Data Augmentation for Natural Language Processing Applications"
 authors = ["Ritvik19 <rastogiritvik99@gmail.com>"]
 readme = "README.md"

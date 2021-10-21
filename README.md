@@ -69,7 +69,7 @@ Contextual Word Replacement Augmentation creates Augmented Samples by randomly r
 
 ### Easy Data Augmentation
 
-Easy Data Augmentation adds word level noise by randomly inserting, deleting, swaping some words in the input text or by shuffling the sentences in the input text. [[4]](#ref-4) [[5]](#ref-5) [[5]](#ref-5) [[12]](#ref-12) [[13]](#ref-13)
+Easy Data Augmentation adds word level noise by randomly inserting, deleting, swaping some words in the input text or by shuffling the sentences in the input text. [[4]](#ref-4) [[5]](#ref-5) [[9]](#ref-9) [[12]](#ref-12) [[13]](#ref-13)
 
 ```python
 >>> from text_data_augmentation import EasyDataAugmentation

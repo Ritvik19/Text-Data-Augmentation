@@ -35,7 +35,6 @@ class BackTranslation:
     def __call__(self, x):
         augmented = []
         for doc in tqdm(x, disable=self.disable_progress):
-            augmented.append(doc)
             try:
                 input_ids_a = self.tokenizer_a.encode(doc, return_tensors="pt")
                 outputs_a = self.model_a.generate(input_ids_a)
@@ -51,4 +50,4 @@ class BackTranslation:
             except IndexError:
                 augmented.append(doc)
 
-        return augmented
+        return list(x) + augmented

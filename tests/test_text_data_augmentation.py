@@ -5,7 +5,7 @@ from text_data_augmentation import __version__
 
 
 def test_version():
-    assert __version__ == "1.1.1"
+    assert __version__ == "1.2.1"
 
 
 def test_data():

@@ -70,7 +70,7 @@ Character Noise Augmentation adds character level noise by randomly inserting, d
 
 ### Contextual Word Replacement
 
-Contextual Word Replacement Augmentation creates Augmented Samples by randomly replacing some words with a mask and then using a Masked Language Model to fill it. [[2]](#ref-2) [[3]](#ref-3) [[11]](#ref-11)
+Contextual Word Replacement Augmentation creates Augmented Samples by randomly replacing some words with a mask and then using a Masked Language Model to fill it. Sampling of words can be weighted using TFIDF values as well. [[2]](#ref-2) [[3]](#ref-3) [[11]](#ref-11) [[19]](#ref-19)
 
 ```python
 >>> from text_data_augmentation import ContextualWordReplacement
@@ -125,7 +125,7 @@ Paraphrase Augmentation rephrases the input sentences using T5 models. [[2]](#re
 
 ### Similar Word Replacement
 
-Similar Word Replacement Augmentation creates Augmented Samples by randomly replacing some words with a word having the most similar vector to it. [[2]](#ref-2) [[7]](#ref-7) [[15]](#ref-15) [[16]](#ref-16)
+Similar Word Replacement Augmentation creates Augmented Samples by randomly replacing some words with a word having the most similar vector to it. Sampling of words can be weighted using TFIDF values as well. [[2]](#ref-2) [[7]](#ref-7) [[15]](#ref-15) [[16]](#ref-16) [[19]](#ref-19)
 
 ```python
 >>> from text_data_augmentation import SimilarWordReplacement
@@ -136,7 +136,7 @@ Similar Word Replacement Augmentation creates Augmented Samples by randomly repl
 
 ### Synonym Replacement
 
-Synonym Replacement Augmentation creates Augmented Samples by randomly replacing some words with their synonyms based on the word net data base.[[2]](#ref-2) [[4]](#ref-4) [[8]](#ref-8) [[13]](#ref-13)
+Synonym Replacement Augmentation creates Augmented Samples by randomly replacing some words with their synonyms based on the word net data base. Sampling of words can be weighted using TFIDF values as well. [[2]](#ref-2) [[4]](#ref-4) [[8]](#ref-8) [[13]](#ref-13) [[19]](#ref-19)
 
 ```python
 >>> from text_data_augmentation import SynonymReplacement
@@ -178,4 +178,4 @@ Word Split Augmentation adds word level spelling mistake noise by spliting words
 16. <a href="https://arxiv.org/pdf/1509.01626.pdf" id="ref-16">Character-level Convolutional Networks for Text Classification</a>
 17. <a href="https://arxiv.org/pdf/1812.02303.pdf" id="ref-17">Neural Abstractive Text Summarization with Sequence-to-Sequence Models</a>
 18. <a href="https://arxiv.org/pdf/1910.13461v1.pdf" id="ref-18">BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension</a>
-19.
+19. <a href="https://arxiv.org/pdf/1904.12848.pdf" id="ref-19">Unsupervised Data Augmentation for Consistency Training</a>

@@ -179,3 +179,4 @@ Word Split Augmentation adds word level spelling mistake noise by spliting words
 17. <a href="https://arxiv.org/pdf/1812.02303.pdf" id="ref-17">Neural Abstractive Text Summarization with Sequence-to-Sequence Models</a>
 18. <a href="https://arxiv.org/pdf/1910.13461v1.pdf" id="ref-18">BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation, Translation, and Comprehension</a>
 19. <a href="https://arxiv.org/pdf/1904.12848.pdf" id="ref-19">Unsupervised Data Augmentation for Consistency Training</a>
+20. <a href="https://arxiv.org/pdf/2007.02033.pdf" id="ref-20">Text Data Augmentation: Towards better detection of spear-phishing emails</a>

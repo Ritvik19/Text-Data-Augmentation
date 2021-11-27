@@ -1,6 +1,6 @@
 # Text-Data-Augmentation
 
-State of the Text Data Augmentation for Natural Language Processing Applications
+State of the Art Text Data Augmentation for Natural Language Processing Applications
 
 ## Table of Contents
 

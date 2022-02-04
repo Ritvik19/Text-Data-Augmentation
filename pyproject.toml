@@ -6,7 +6,7 @@ authors = ["Ritvik19 <rastogiritvik99@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.7"
 nltk = "^3.6.5"
 scikit-learn= "^1.0"
 spacy = "^3.1.3"
